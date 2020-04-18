@@ -10,6 +10,11 @@ This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github
 
 ## Documentation
 
+```
+$ qmk compile -kb dz60 -km mccurdyc
+$ sudo qmk flash -kb dz60 -km mccurdyc
+```
+
 * [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
 
 The docs are powered by [VitePress](https://vitepress.dev/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
