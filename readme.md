@@ -8,7 +8,7 @@ git clone --recurse-submodules git@github.com:mccurdyc/qmk_firmware.git
 
 Look at my keymap - https://github.com/mccurdyc/qmk_firmware/tree/master/keyboards/1upkeyboards/1up60hse/keymaps/mccurdyc
 
-> ![CAUTION]
+> [!CAUTION]
 > 1. Do NOT store the JSON file in the keymap directory, `qmk compile` will fail
 > 2. Do NOT overwrite keyboard.json file
 
