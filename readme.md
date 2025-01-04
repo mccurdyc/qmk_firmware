@@ -1,3 +1,9 @@
+# Cloning the repo
+
+```bash
+git clone --recurse-submodules git@github.com:mccurdyc/qmk_firmware.git
+```
+
 # Creating a Keymap
 
 ```bash
