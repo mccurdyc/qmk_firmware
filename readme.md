@@ -1,3 +1,40 @@
+# Creating a Keymap
+
+```bash
+qmk config user.keyboard=dz60
+qmk config user.keymap=mccurdyc
+
+qmk config compile.keyboard=default
+qmk config compile.keymap=default
+# now you can run `qmk compile` with no arguments
+
+# Wrote configuration to '/Users/mccurdyc/Library/Application Support/qmk/qmk.ini'
+
+qmk new-keymap -kb dz60
+# Created a new keymap called mccurdyc in: /Users/mccurdyc/qmk_firmware/keyboards/dz60/keymaps/mccurdyc.
+# Compile a firmware with your new keymap by typing: qmk compile -kb dz60 -km mccurdyc.
+```
+
+# Updating a Keymap
+
+```bash
+# make a change to keyboards/dz60/keymaps/mccurdyc; then
+qmk compile -kb dz60 -km mccurdyc
+
+# Or, if you've configured defaults
+qmk config compile.keyboard=clueboard/66/rev4 compile.keymap=default
+```
+
+# Using QMK Configurator
+
+```bash
+# JSON to C file
+qmk json2c -o keyboards/dz60/keymaps/mccurdyc/keymap.c keyboards/dz60/keymaps/mccurdyc/keymap.json
+
+# C to JSON file
+qmk c2json -km mccurdyc -kb dz60 -o keyboards/dz60/keymaps/mccurdyc/keymap.json keyboards/dz60/keymaps/mccurdyc/keymap.c
+```
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
