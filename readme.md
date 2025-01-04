@@ -4,10 +4,26 @@
 git clone --recurse-submodules git@github.com:mccurdyc/qmk_firmware.git
 ```
 
+# Updating a Keymap
+
+Look at my keymap - https://github.com/mccurdyc/qmk_firmware/tree/master/keyboards/1upkeyboards/1up60hse/keymaps/mccurdyc
+>![CAUTION]
+> 1. Do NOT store the JSON file in the keymap directory, `qmk compile` will fail
+> 2. Do NOT overwrite keyboard.json file
+
+1. Use the QMK Configurator - https://config.qmk.fm/#/1upkeyboards/1up60hse/LAYOUT_60_ansi
+2. Upload the JSON file https://github.com/mccurdyc/qmk_firmware/tree/master/keyboards/1upkeyboards/1up60hse/mccurdyc.json
+3. Make Edits
+4. Download the new JSON file to the same place
+5. `qmk json2c -o keyboards/1upkeyboards/1up60hse/keymaps/mccurdyc/keymap.c keyboards/1upkeyboards/1up60hse/mccurdyc.json`
+6. `qmk compile -kb 1upkeyboards/1up60hse -km mccurdyc`
+7. Put the keyboard in Bootloader mode (for this keyboard, hold "reset" on the bottom of the keyboard)
+8. `qmk flash -km mccurdyc -kb 1upkeyboards/1up60hse`
+
 # Creating a Keymap
 
 ```bash
-qmk config user.keyboard=dz60
+qmk config user.keyboard=1upkeyboards/1up60hse
 qmk config user.keymap=mccurdyc
 
 qmk config compile.keyboard=default
@@ -16,72 +32,6 @@ qmk config compile.keymap=default
 
 # Wrote configuration to '/Users/mccurdyc/Library/Application Support/qmk/qmk.ini'
 
-qmk new-keymap -kb dz60
-# Created a new keymap called mccurdyc in: /Users/mccurdyc/qmk_firmware/keyboards/dz60/keymaps/mccurdyc.
-# Compile a firmware with your new keymap by typing: qmk compile -kb dz60 -km mccurdyc.
+qmk new-keymap -kb 1upkeyboards/1up60hse
+# Created a new keymap called mccurdyc in: /Users/mccurdyc/qmk_firmware/keyboards/1upkeyboards/1up60hse/keymaps/mccurdyc.
 ```
-
-# Updating a Keymap
-
-Look at my keymap - https://github.com/mccurdyc/qmk_firmware/tree/master/keyboards/dz60/keymaps/mccurdyc
->![CAUTION]
-> Do NOT store the JSON file in the keymap directory, `qmk compile` will fail
-
-```bash
-# make a change to keyboards/dz60/keymaps/mccurdyc; then
-qmk compile -kb dz60 -km mccurdyc
-
-# Or, if you've configured defaults
-qmk config compile.keyboard=clueboard/66/rev4 compile.keymap=default
-```
-
-# Using QMK Configurator
-
-```bash
-# JSON to C file
-qmk json2c -o keyboards/dz60/keymaps/mccurdyc/keymap.c keyboards/dz60/keyboard.json
-
-# C to JSON file
-qmk c2json -km mccurdyc -kb dz60 -o keyboards/dz60/keyboard.json keyboards/dz60/keymaps/mccurdyc/keymap.c
-```
-
-# Quantum Mechanical Keyboard Firmware
-
-[![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
-[![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/qmk)
-[![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
-[![GitHub contributors](https://img.shields.io/github/contributors/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/pulse/monthly)
-[![GitHub forks](https://img.shields.io/github/forks/qmk/qmk_firmware.svg?style=social&label=Fork)](https://github.com/qmk/qmk_firmware/)
-
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
-
-## Documentation
-
-```
-$ sudo qmk flash -kb dz60 -km mccurdyc
-```
-
-* [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
-
-The docs are powered by [VitePress](https://vitepress.dev/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
-
-You can request changes by making a fork and opening a [pull request](https://github.com/qmk/qmk_firmware/pulls).
-
-## Supported Keyboards
-
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
-
-The project also includes community support for [lots of other keyboards](/keyboards/).
-
-## Maintainers
-
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
-
-## Official Website
-
-[qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
