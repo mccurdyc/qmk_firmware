@@ -23,6 +23,10 @@ qmk new-keymap -kb dz60
 
 # Updating a Keymap
 
+Look at my keymap - https://github.com/mccurdyc/qmk_firmware/tree/master/keyboards/dz60/keymaps/mccurdyc
+>![CAUTION]
+> Do NOT store the JSON file in the keymap directory, `qmk compile` will fail
+
 ```bash
 # make a change to keyboards/dz60/keymaps/mccurdyc; then
 qmk compile -kb dz60 -km mccurdyc
@@ -35,10 +39,10 @@ qmk config compile.keyboard=clueboard/66/rev4 compile.keymap=default
 
 ```bash
 # JSON to C file
-qmk json2c -o keyboards/dz60/keymaps/mccurdyc/keymap.c keyboards/dz60/keymaps/mccurdyc/keymap.json
+qmk json2c -o keyboards/dz60/keymaps/mccurdyc/keymap.c keyboards/dz60/keyboard.json
 
 # C to JSON file
-qmk c2json -km mccurdyc -kb dz60 -o keyboards/dz60/keymaps/mccurdyc/keymap.json keyboards/dz60/keymaps/mccurdyc/keymap.c
+qmk c2json -km mccurdyc -kb dz60 -o keyboards/dz60/keyboard.json keyboards/dz60/keymaps/mccurdyc/keymap.c
 ```
 
 # Quantum Mechanical Keyboard Firmware
@@ -54,7 +58,6 @@ This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github
 ## Documentation
 
 ```
-$ qmk compile -kb dz60 -km mccurdyc
 $ sudo qmk flash -kb dz60 -km mccurdyc
 ```
 
